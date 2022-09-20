@@ -1,0 +1,56 @@
+import javax.swing.* ;
+import java.awt.event.* ;
+import java.awt.* ;
+
+public class Gst {
+    //declare the gui elements
+    public static JFrame frmMain ;
+    public static JLabel iniAmount ;
+    public static JTextField textIniAmount ;
+    public static JLabel rateGst ;
+    public static JTextField textGst ;
+    public static JLabel finAmount ;
+    public static JTextField textFinAmount ;
+    public static JButton btnCalGst ;
+
+    public static void main(String[] args)
+    {
+        //set up the frame
+        frmMain= new JFrame("gst gui app ") ;
+        frmMain.setSize(150,200) ;
+        frmMain.setLayout(new FlowLayout()) ;
+
+        //create gui elements
+        iniAmount = new JLabel("initial amount");
+        textIniAmount= new JTextField(10) ;
+        rateGst = new JLabel("gst rate%");
+        textGst= new JTextField(10) ;
+        finAmount = new JLabel("final amount");
+        textFinAmount= new JTextField(10) ;
+        btnCalGst= new JButton("calculate") ;
+
+        // add action listener
+        btnCalGst.addActionListener(
+                new ActionListener()
+                {
+                    public void actionPerformed(ActionEvent e)
+                    {
+                        double result = Double.valueOf(textIniAmount.getText()) +Double.valueOf(textIniAmount.getText()) * Double.valueOf(textGst.getText())/100 ;
+                        textFinAmount.setText(String.valueOf( result));
+                    }
+                }
+        );
+
+        //add the gui elements to the frame
+        frmMain.add(iniAmount) ;
+        frmMain.add(textIniAmount) ;
+        frmMain.add(rateGst) ;
+        frmMain.add(textGst) ;
+        frmMain.add(btnCalGst) ;
+        frmMain.add(finAmount) ;
+        frmMain.add(textFinAmount) ;
+
+        // make the frame visible
+        frmMain.setVisible(true);
+    }
+}
